@@ -32,7 +32,7 @@ def gen_mod_door():
     while mod_door == player_door1 or mod_door == win_door or mod_door == 0:
         mod_door = random.randint(1, 3)
 
-
+#Welchen Befehl soll der Button ausführen
 def button_cmd(door):
     global count, player_door1, player_door2, win_door, root, played_rounds, winned_rounds
     count += 1
@@ -58,6 +58,7 @@ def button_cmd(door):
         count = 0
         mod_label.set(f"Klicke auf einen Button! | Gewonne Spiele: {winned_rounds}/{played_rounds}")
 
+#3 Funktionen, die man braucht, weil man Button-Commandw nicht mit Paramentern verwenden kann
 def door1_cmd():
     button_cmd(1)
 
@@ -66,6 +67,7 @@ def door2_cmd():
 
 def door3_cmd():
     button_cmd(3)
+
 
 #Erstelle das Fenster und bearbeite es
 root = tk.Tk() #Erstellt das Fenster namens "root"
@@ -87,9 +89,11 @@ door1 = ttk.Button(root, text="Tür 1", padding=10, command=door1_cmd)
 door2 = ttk.Button(root, text="Tür 2", padding=10, command=door2_cmd)
 door3 = ttk.Button(root, text="Tür 3", padding=10, command=door3_cmd)
 
+#Platziere die Türen
 door1.grid(row=0, column=1, padx=0, pady=10, sticky="w")
 door2.grid(row=0, column=2, padx=0, pady=10, sticky="w")
 door3.grid(row=0, column=3, padx=0, pady=10, sticky="w")
 
 
+#Führe das Programm aus
 root.mainloop()
